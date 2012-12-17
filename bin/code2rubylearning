@@ -1,3 +1,5 @@
 #!/usr/bin/env ruby
 
 require 'code2rubylearning'
+
+puts "code2rubylearning version: #{ ::Code2rubylearning::VERSION }"
