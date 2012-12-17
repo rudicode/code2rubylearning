@@ -3,6 +3,8 @@ command line tool that formats, given source code files, making them ready for p
 
 ## Installation
 
+### Not released yet as a gem, see Contributing below
+
 Add this line to your application's Gemfile:
 
     gem 'code2rubylearning'
