@@ -1,25 +1,7 @@
 # Code2rubylearning
 command line tool that formats, given source code files, making them ready for pasting to the rubylearning.org forum. 
 
-## Installation
-
-### Not released yet as a gem, see Contributing below
-
-Add this line to your application's Gemfile:
-
-    gem 'code2rubylearning'
-
-And then execute:
-
-    $ bundle
-
-Or install it yourself as:
-
-    $ gem install code2rubylearning
-
-## Usage
-
-TODO: Write usage instructions here
+# Under Development
 
 ## Contributing
 
@@ -28,3 +10,19 @@ TODO: Write usage instructions here
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
 5. Create new Pull Request
+
+## Development Setup
+
+Do `bundle install`
+
+To run rspec specs
+`bundle exec rake spec`
+
+To run minitest tests
+`bundle exec rake test`
+
+To run test program
+`bundle exec ruby bin/code2rubylearning`
+If the test program runs successfuly it should have copied some text to your clipboard.
+I only have a linux system to test on so could Mac and Windows users report any problems.
+Just open a new issue.
