@@ -18,4 +18,8 @@ RSpec.configure do |config|
   # the seed, which is printed after each run.
   #     --seed 1234
   config.order = 'random'
+
+  #Adding colorized output as a standard
+  config.color_enabled = true
+  config.tty = true
 end
