@@ -4,11 +4,11 @@ source 'https://rubygems.org'
 gemspec
 
 gem 'rake'
+gem 'clippy', "~> 1.0.1"
 
 group :development do
 
   # gem 'guard-ronn'
-
   # gem 'yard'
   # gem 'redcarpet'
 
@@ -37,7 +37,9 @@ end
 group :test do
   gem 'minitest', "~> 4.3.3"
   gem 'minitest-reporters'
-  gem 'guard', "~> 1.5.4"
   gem 'guard-minitest', '0.5.0'
+  gem 'guard', "~> 1.5.4"
+  gem 'rspec', "~> 2.12.0"
+  gem 'guard-rspec', "~> 2.3.1"
 end
 
