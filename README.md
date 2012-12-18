@@ -1,26 +1,24 @@
 # Code2rubylearning
 command line tool that formats, given source code files, making them ready for pasting to the rubylearning.org forum. 
 
+# Under Development
 ## Installation
-
-### Not released yet as a gem, see Contributing below
 
 Add this line to your application's Gemfile:
 
-    gem 'code2rubylearning'
+    gem 'code2rubylearning', :git => "https://github.com/rudicode/code2rubylearning.git", :branch => "master"
 
 And then execute:
 
     $ bundle
+This should install clippy 1.0.1 as well.
 
-Or install it yourself as:
+To see if it works
 
-    $ gem install code2rubylearning
+    $ bundle exec code2rubylearning
 
-## Usage
-
-TODO: Write usage instructions here
-
+This should copy the text string "Text to copy to clip board." to your clipboard.
+    
 ## Contributing
 
 1. Fork it
@@ -28,3 +26,19 @@ TODO: Write usage instructions here
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
 5. Create new Pull Request
+
+## Development Setup
+
+Do `bundle install`
+
+To run rspec specs
+`bundle exec rake spec`
+
+To run minitest tests
+`bundle exec rake test`
+
+To run test program
+`bundle exec ruby bin/code2rubylearning`
+If the test program runs successfuly it should have copied some text to your clipboard.
+I only have a linux system to test on so could Mac and Windows users report any problems.
+Just open a new issue.

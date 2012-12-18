@@ -1,5 +1,8 @@
 #!/usr/bin/env ruby
 
+#require "bundler/setup"
 require 'code2rubylearning'
 
-puts "code2rubylearning version: #{ ::Code2rubylearning::VERSION }"
+puts "code2rubylearning version: #{ Code2rubylearning::VERSION }"
+data = "Text to copy to clip board."
+Code2rubylearning.copy_clipboard data

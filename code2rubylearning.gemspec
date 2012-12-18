@@ -8,12 +8,13 @@ Gem::Specification.new do |gem|
   gem.version = Code2rubylearning::VERSION
   gem.authors = ["Rudi Luzar"]
   gem.email = ["rudi@rudi.me"]
-  gem.description = %q{TODO: Write a gem description}
-  gem.summary = %q{TODO: Write a gem summary}
-  gem.homepage = ""
+  gem.description = "command line tool that formats, given source code files, making them ready for pasting to the rubylearning.org forum." 
+  gem.summary = "command line tool that formats, given source code files, making them ready for pasting to the rubylearning.org forum."
+  gem.homepage = "https://github.com/rudicode/code2rubylearning"
 
   gem.files = `git ls-files`.split($/)
   gem.executables = gem.files.grep(%r{^bin/}).map{ |f| File.basename(f) }
   gem.test_files = gem.files.grep(%r{^(test|spec|features)/})
   gem.require_paths = ["lib"]
+  gem.add_runtime_dependency "clippy", ["= 1.0.1"]
 end
