@@ -2,7 +2,23 @@
 command line tool that formats, given source code files, making them ready for pasting to the rubylearning.org forum. 
 
 # Under Development
+## Installation
 
+Add this line to your application's Gemfile:
+
+    gem 'code2rubylearning', :git => "https://github.com/rudicode/code2rubylearning.git", :branch => "master"
+
+And then execute:
+
+    $ bundle
+This should install clippy 1.0.1 as well.
+
+To see if it works
+
+    $ bundle exec code2rubylearning
+
+This should copy the text string "Text to copy to clip board." to your clipboard.
+    
 ## Contributing
 
 1. Fork it
