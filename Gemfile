@@ -35,8 +35,9 @@ group :development do
 end
 
 group :test do
-  gem 'rspec', "~> 2.12.0"
+  gem 'minitest', "~> 4.3.3"
+  gem 'minitest-reporters'
   gem 'guard', "~> 1.5.4"
-  gem 'guard-rspec', "~> 2.3.1"
+  gem 'guard-minitest', '0.5.0'
 end
 
