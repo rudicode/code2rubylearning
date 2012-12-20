@@ -1,5 +1,4 @@
 class Reformat
-  attr_reader :ref_file
   def initialize file_name
     file = File.open(file_name,"r") do |txt|
       @file_text = txt.read
