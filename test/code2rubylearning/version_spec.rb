@@ -1,9 +1,14 @@
 require "./test/minitest_helper"
+include Code2rubylearning
 
-describe Code2rubylearning do
-  
+describe "Code2rubylearning version" do
+
+  before :each do
+
+  end
+
   it "should have a version number" do
-    ::Code2rubylearning::VERSION.must_match /\d.\d.\d/
+    VERSION.must_match /\d.\d.\d/
+    version.must_match /\d.\d.\d/
   end
 end
-

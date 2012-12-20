@@ -5,7 +5,7 @@ require 'minitest/spec'
 require 'minitest/reporters'
 
 reporters = [ MiniTest::Reporters::DefaultReporter.new,
-              MiniTest::Reporters::SpecReporter.new, 
+              MiniTest::Reporters::SpecReporter.new,
               MiniTest::Reporters::ProgressReporter.new,
               # MiniTest::Reporters::RubyMineReporter.new,
               # MiniTest::Reporters::RubyMateReporter.new,
@@ -17,6 +17,6 @@ MiniTest::Reporters.use! [reporters[1]]
 require('code2rubylearning')
 require('code2rubylearning/version')
 
-describe Code2rubylearning do
-  
-end
+#describe Code2rubylearning do
+#
+#end
