@@ -1,6 +1,7 @@
 require "spec_helper"
-#require('./lib/code2rubylearning')
 
 describe Code2rubylearning do
-  it"should be a pending test"  
+ it"should skip this minispec"
+ it"should skip this minispec too"
+ 
 end
