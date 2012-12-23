@@ -31,14 +31,13 @@ This should copy the text string "Text to copy to clip board." to your clipboard
 
 Do `bundle install`
 
-To run rspec specs
+To run minitest specs
 `bundle exec rake spec`
 
-To run minitest tests
-`bundle exec rake test`
-
 To run test program
-`bundle exec ruby bin/code2rubylearning`
-If the test program runs successfuly it should have copied some text to your clipboard.
+`bundle exec ruby bin/code2rubylearning FILE`
+
+If the test program runs successfuly it should have copied the contents of FILE to the clipboard.
+
 I only have a linux system to test on so could Mac and Windows users report any problems.
 Just open a new issue.
