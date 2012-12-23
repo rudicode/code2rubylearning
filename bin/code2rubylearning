@@ -7,5 +7,5 @@ puts "code2rubylearning version: #{ VERSION }"
 
 file = FileHandling.new(ARGV[0])
 data1 = file.get_data
-filter_plain = Filter.new()
-filter_plain.copy_to_clipboard data1
+filter = Filter.new()
+filter.copy_to_clipboard data1

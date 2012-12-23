@@ -3,6 +3,7 @@ require "bundler/setup"
 require 'minitest/autorun'
 require 'minitest/spec'
 require 'minitest/reporters'
+require "minitest/matchers"
 
 reporters = [ MiniTest::Reporters::DefaultReporter.new,
               MiniTest::Reporters::SpecReporter.new,
@@ -16,3 +17,5 @@ MiniTest::Reporters.use! [reporters[1]]
 
 require('code2rubylearning')
 require('code2rubylearning/version')
+
+include Code2rubylearning
