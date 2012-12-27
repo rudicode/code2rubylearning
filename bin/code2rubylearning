@@ -9,3 +9,9 @@ file = FileHandling.new(ARGV[0])
 data1 = file.get_data
 filter = Filter.new()
 filter.copy_to_clipboard data1 unless data1.empty?
+
+#
+# build a file list and optons {}
+# go through all files and build a string buffer
+# paste the buffer to clipboard.
+#

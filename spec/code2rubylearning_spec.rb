@@ -19,7 +19,7 @@ describe Code2rubylearning do
         @filter.convert(original).must_equal expected
       end
 
-      it "should convert multiple i<< to &lt;&lt; in a string" do
+      it "should convert multiple << to &lt;&lt; in a string" do
         original = 'my_array << "some string"'
         expected = 'my_array &lt;&lt; "some string"'
         @filter.convert(original).must_equal expected
