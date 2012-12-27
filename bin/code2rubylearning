@@ -3,15 +3,10 @@
 require 'code2rubylearning'
 include Code2rubylearning
 
-puts "code2rubylearning version: #{ VERSION }"
+puts "code2rubylearning version: #{ Code2rubylearning::VERSION }"
 
-file = FileHandling.new(ARGV[0])
+file = Code2rubylearning::FileHandling.new(ARGV[0])
 data1 = file.get_data
-filter = Filter.new()
+filter = Code2rubylearning::Filter.new()
 filter.copy_to_clipboard data1 unless data1.empty?
 
-#
-# build a file list and optons {}
-# go through all files and build a string buffer
-# paste the buffer to clipboard.
-#

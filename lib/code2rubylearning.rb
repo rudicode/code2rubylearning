@@ -1,58 +1,8 @@
 require 'clippy'
-require "code2rubylearning/version"
+require 'code2rubylearning/version'
+require 'code2rubylearning/filter'
+require 'code2rubylearning/filehandling'
 
 module Code2rubylearning
   # Your code goes here...
-  class Filter
-    def initialize
-      
-    end
-    def copy_to_clipboard data, options = {}
-      # usage will be
-      # copy_to_clipboard data, type: 'ruby', target: 'clipboard'
-
-      Clippy.copy data
-    end
-
-    def paste_from_clipboard
-      Clippy.paste
-    end
-
-    def filter input
-      '[code ruby]\n' <<  input << '[/code]\n'
-    end
-
-    def convert source
-      source.gsub('<','&lt;')
-    end
-    
-  end
-
-  class FileHandling
-    def initialize(file)
-      load_data file
-    end
-
-    def get_data
-      @data 
-    end
-
-    def get_file file
-      load_data file
-      @data
-    end
-
-    private
-    def load_data file
-      @data = "" 
-      if file
-        @file = file
-        if File.exists?(@file)
-          @data = IO.read(@file)
-        end
-      end
-    end
-
-  end
-
 end
