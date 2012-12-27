@@ -32,7 +32,7 @@ This should copy the text string "Text to copy to clip board." to your clipboard
 Do `bundle install`
 
 To run minitest specs
-`bundle exec rake test`
+`bundle exec rake spec`
 
 To run test program
 `bundle exec ruby bin/code2rubylearning FILE`
