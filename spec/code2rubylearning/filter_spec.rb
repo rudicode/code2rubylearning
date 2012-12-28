@@ -20,17 +20,17 @@ describe "Filter" do
 
   end
 
-  describe ".filter" do
+  describe ".apply" do
     it "should add [code ruby] to original string" do
-      original = 'class Automobile < Vehicle\n  #comment\nend'
-      expected = '[code ruby]\n'
-      @filter.filter(original).must_include expected
+      original = "class Automobile < Vehicle\n  #comment\nend"
+      expected = "[code ruby]\n"
+      @filter.apply(original, "filename1.rb").must_include expected
     end
 
     it "should add [/code] to original string" do
-      original = 'class Automobile < Vehicle\n  #comment\nend'
-      expected = '[/code]\n'
-      @filter.filter(original).must_include expected
+      original = "class Automobile < Vehicle\n  #comment\nend"
+      expected = "[/code]\n"
+      @filter.apply(original, "filename1.rb").must_include expected
     end
 
   end

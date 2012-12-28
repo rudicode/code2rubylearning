@@ -3,24 +3,22 @@ module Code2rubylearning
     def initialize
       
     end
-    def copy_to_clipboard data, options = {}
-      # usage will be
-      # copy_to_clipboard data, type: 'ruby', target: 'clipboard'
 
-      Clippy.copy data
+    def apply input, file_name
+      add_header(file_name) <<  convert(input) << add_footer
     end
 
-    def paste_from_clipboard
-      Clippy.paste
+    def add_header file_name
+      "[code ruby]#filename: #{ file_name }\n[/code]\n[code ruby]\n"
     end
 
-    def filter input
-      '[code ruby]\n' <<  input << '[/code]\n'
+    def add_footer
+      "[/code]\n"
     end
 
     def convert source
       source.gsub('<','&lt;')
     end
-    
+
   end
 end

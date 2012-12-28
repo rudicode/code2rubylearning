@@ -1,12 +1,7 @@
 #!/usr/bin/env ruby
 
 require 'code2rubylearning'
-include Code2rubylearning
 
 puts "code2rubylearning version: #{ Code2rubylearning::VERSION }"
-
-file = Code2rubylearning::FileHandling.new(ARGV[0])
-data1 = file.get_data
-filter = Code2rubylearning::Filter.new()
-filter.copy_to_clipboard data1 unless data1.empty?
+Code2rubylearning.start ARGV
 
