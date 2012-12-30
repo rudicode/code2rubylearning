@@ -1,15 +1,17 @@
 module Code2rubylearning
   class Filter
-    def initialize
-      
+    def initialize options
+      @options = options      
     end
 
     def apply input, file_name
-      add_header(file_name) <<  convert(input) << add_footer
+      add_header(file_name) << convert(input) << add_footer
     end
 
     def add_header file_name
-      "[code ruby]#filename: #{ file_name }\n[/code]\n[code ruby]\n"
+      header = "[code ruby]\n"
+      header << "#filename: #{ file_name }\n" if @options[:filenames] 
+      header
     end
 
     def add_footer

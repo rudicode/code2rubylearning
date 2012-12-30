@@ -1,7 +1,43 @@
 #!/usr/bin/env ruby
 
+require 'optparse'
+
+options = {}
+
+optparse = OptionParser.new do|opt|
+  opt.banner = "Usage: optparse1.rb [options] file1 file2 ..."
+
+  # options
+  options[:stdout] = false
+  opt.on( '-s', '--stdout', 'Output to stdout' ) do
+    options[:stdout] = true
+  end
+
+  options[:combine] = false
+  opt.on( '-c', '--combine', 'Combine multiple files into one' ) do
+    options[:combine] = true
+  end
+
+  options[:filenames] = true
+  opt.on( '-f', '--nofilenames', 'Suppress filename line in output' ) do
+    options[:filenames] = false
+  end
+
+  opt.on( '-h', '--help', 'Display help screen' ) do
+    puts opt
+    exit 1
+  end
+end
+begin optparse.parse! ARGV
+
+rescue OptionParser::InvalidOption => e
+  puts e
+  puts optparse
+  exit 1
+end
+
 require 'code2rubylearning'
 
 puts "code2rubylearning version: #{ Code2rubylearning::VERSION }"
-Code2rubylearning.start ARGV
+Code2rubylearning.start ARGV, options
 

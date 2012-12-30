@@ -8,7 +8,7 @@ module Code2rubylearning
 
   extend self
 
-  def start args
+  def start args, options
     ParseCLI.parse args
     files   = ParseCLI.files
     options = ParseCLI.options
@@ -17,11 +17,12 @@ module Code2rubylearning
     files.each do |file|
       current_file = FileHandling.new(file)
       current_data = current_file.get_data
-      filter = Filter.new()
+      filter = Filter.new(options)
       @buffer << filter.apply(current_data, file)
     end
 
     Clippy.copy @buffer unless @buffer.empty?
+    puts @buffer if options[:stdout]
   end
 
 end

@@ -2,7 +2,8 @@ require "spec_helper"
 
 describe "Filter" do
   before :each do
-    @filter = Filter.new()
+    @options = {}
+    @filter = Filter.new(@options)
   end
 
   describe ".convert" do
