@@ -11,7 +11,7 @@ module Code2rubylearning
   def start args, options
     ParseCLI.parse args
     files   = ParseCLI.files
-    options = ParseCLI.options
+    # options = ParseCLI.options
     @buffer = ""
 
     files.each do |file|

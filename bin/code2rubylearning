@@ -5,7 +5,7 @@ require 'optparse'
 options = {}
 
 optparse = OptionParser.new do|opt|
-  opt.banner = "Usage: optparse1.rb [options] file1 file2 ..."
+  opt.banner = "code2rubylearning version: #{ Code2rubylearning::VERSION }\n\nUsage: code2rubylearning [options] file1 file2 ..."
 
   # options
   options[:stdout] = false
@@ -14,7 +14,7 @@ optparse = OptionParser.new do|opt|
   end
 
   options[:combine] = false
-  opt.on( '-c', '--combine', 'Combine multiple files into one' ) do
+  opt.on( '-c', '--combine', 'Combine multiple files into one ( not yet implemented )' ) do
     options[:combine] = true
   end
 
@@ -36,8 +36,12 @@ rescue OptionParser::InvalidOption => e
   exit 1
 end
 
+if ARGV.empty?
+  puts optparse
+  exit 1
+end
+
 require 'code2rubylearning'
 
-puts "code2rubylearning version: #{ Code2rubylearning::VERSION }"
 Code2rubylearning.start ARGV, options
 
