@@ -1,6 +1,7 @@
 #!/usr/bin/env ruby
 
 require 'optparse'
+require 'code2rubylearning'
 
 options = {}
 
@@ -40,8 +41,6 @@ if ARGV.empty?
   puts optparse
   exit 1
 end
-
-require 'code2rubylearning'
 
 Code2rubylearning.start ARGV, options
 
