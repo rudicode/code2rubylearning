@@ -2,16 +2,12 @@ require 'clippy'
 require 'code2rubylearning/version'
 require 'code2rubylearning/filter'
 require 'code2rubylearning/filehandling'
-require 'code2rubylearning/parse_cli'
 
 module Code2rubylearning
 
   extend self
 
-  def start args, options
-    ParseCLI.parse args
-    files   = ParseCLI.files
-    # options = ParseCLI.options
+  def start files, options
     @buffer = ""
 
     files.each do |file|

@@ -3,7 +3,7 @@
 require 'optparse'
 require 'code2rubylearning'
 
-begin 
+begin
   options = {}
 
   optparse = OptionParser.new do|opt|
@@ -45,3 +45,4 @@ rescue OptionParser::InvalidOption => e
   puts optparse
   exit 1
 end
+
