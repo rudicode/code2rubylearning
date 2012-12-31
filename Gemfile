@@ -41,5 +41,6 @@ group :test do
   gem 'guard-minitest', '0.5.0'
   gem 'guard', "~> 1.6.0"
   gem 'guard-rspec', "~> 2.3.1"
+  gem 'simplecov', :require => false, :group => :test
 end
 

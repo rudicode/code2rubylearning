@@ -1,3 +1,6 @@
+require 'simplecov'
+SimpleCov.start
+SimpleCov.command_name 'MiniTest:specs'
 require "rubygems"
 require "bundler/setup"
 require 'minitest/autorun'
