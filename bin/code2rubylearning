@@ -3,44 +3,45 @@
 require 'optparse'
 require 'code2rubylearning'
 
-options = {}
+begin 
+  options = {}
 
-optparse = OptionParser.new do|opt|
-  opt.banner = "code2rubylearning version: #{ Code2rubylearning::VERSION }\n\nUsage: code2rubylearning [options] file1 file2 ..."
+  optparse = OptionParser.new do|opt|
+    opt.banner = "code2rubylearning version: #{ Code2rubylearning::VERSION }\n\nUsage: code2rubylearning [options] file1 file2 ..."
 
-  # options
-  options[:stdout] = false
-  opt.on( '-s', '--stdout', 'Output to stdout' ) do
-    options[:stdout] = true
+    # options
+    options[:stdout] = false
+    opt.on( '-s', '--stdout', 'Output to stdout' ) do
+      options[:stdout] = true
+    end
+
+    options[:combine] = false
+    opt.on( '-c', '--combine', 'Combine multiple files into one ( not yet implemented )' ) do
+      options[:combine] = true
+    end
+
+    options[:filenames] = true
+    opt.on( '-f', '--nofilenames', 'Suppress filename line in output' ) do
+      options[:filenames] = false
+    end
+
+    opt.on( '-h', '--help', 'Display help screen' ) do
+      puts opt
+      exit 1
+    end
   end
 
-  options[:combine] = false
-  opt.on( '-c', '--combine', 'Combine multiple files into one ( not yet implemented )' ) do
-    options[:combine] = true
-  end
+  optparse.parse! ARGV
 
-  options[:filenames] = true
-  opt.on( '-f', '--nofilenames', 'Suppress filename line in output' ) do
-    options[:filenames] = false
-  end
-
-  opt.on( '-h', '--help', 'Display help screen' ) do
-    puts opt
+  if ARGV.empty?
+    puts optparse
     exit 1
   end
-end
-begin optparse.parse! ARGV
+
+  Code2rubylearning.start ARGV, options
 
 rescue OptionParser::InvalidOption => e
   puts e
   puts optparse
   exit 1
 end
-
-if ARGV.empty?
-  puts optparse
-  exit 1
-end
-
-Code2rubylearning.start ARGV, options
-
