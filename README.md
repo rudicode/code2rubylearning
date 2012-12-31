@@ -3,19 +3,21 @@ command line tool that formats, given source code files, making them ready for p
 
 ## Installation
     gem install code2rubylearning
-    
+
 Or add this line to your application's Gemfile:
 
-    gem "code2rubylearning", "~> 0.1.3"
+    gem "code2rubylearning", "~> 0.1"
 
 And then :
     bundle install
-    
+
 ## Usage:
 
     $ code2rubylearning [options] file1 file2 file3 ...
 
 Check your clipboard, the files should be ready to paste to the forum.
+
+For more, see the [Usage Examples](https://github.com/rudicode/code2rubylearning/wiki/Usage-examples)
 
 ## Contributing
 
