@@ -34,6 +34,12 @@ begin
       puts opt
       exit 1
     end
+
+    opt.on( '-v', '--version', 'Display version information' ) do
+      puts "Version: #{ Code2rubylearning::VERSION }\n"
+      exit 1
+    end
+
   end
 
   optparse.parse! ARGV
