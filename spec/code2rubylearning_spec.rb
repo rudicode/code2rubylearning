@@ -1,11 +1,13 @@
 require "spec_helper"
 
 describe Code2rubylearning do
+  before :each do
+    @options = { :stdout => false , :prg_link => false }
+  end
 
   it "should convert a single file" do
     files = ["spec/assets/file-1.rb"]
-    options = { :stdout => false }
-    Code2rubylearning.start files, options
+    Code2rubylearning.start files, @options
 
     # check if clipboard contents equal converted file
     # be careful clippy adds \r to new lines ( see clippy docs )
@@ -16,8 +18,7 @@ describe Code2rubylearning do
 
   it "should convert multiple files" do
     files = ["spec/assets/file-1.rb", "spec/assets/file-2.rb"]
-    options = { :stdout => false }
-    Code2rubylearning.start files, options
+    Code2rubylearning.start files, @options
 
     # check if clipboard contents equal converted file
     # be careful clippy adds \r to new lines ( see clippy docs )
@@ -27,5 +28,17 @@ describe Code2rubylearning do
 
   end
 
+  it "should add a program link to the end if :prg_link is true" do
+    @options = { :prg_link => true }
+    files = ["spec/assets/file-1.rb", "spec/assets/file-2.rb"]
+    Code2rubylearning.start files, @options
+    
+    # check if clipboard contents equal converted file
+    # be careful clippy adds \r to new lines ( see clippy docs )
+    from_clipboard = Clippy.paste
+    correct_response = "<a href=\"https://github.com/rudicode/code2rubylearning/wiki\">Posted with code2rubylearning v"
+    from_clipboard.must_include correct_response
+
+  end
 
 end

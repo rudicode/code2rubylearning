@@ -25,6 +25,11 @@ begin
       options[:filenames] = false
     end
 
+    options[:prg_link] = true
+    opt.on( '-p', '--noprglink', 'Suppress program link line in output' ) do
+      options[:prg_link] = false
+    end
+
     opt.on( '-h', '--help', 'Display help screen' ) do
       puts opt
       exit 1
