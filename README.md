@@ -31,6 +31,10 @@ For more, see the [Usage Examples](https://github.com/rudicode/code2rubylearning
 
 Do `bundle install`
 
+copy `config.yaml.example` to `config.yaml`
+
+edit `config.yaml` to your preferred testing reporter
+
 To run minitest specs
 `bundle exec rake spec`
 

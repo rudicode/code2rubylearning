@@ -1,0 +1,10 @@
+# Minitest Reporters Selection
+---
+# Your Reporter choices:  (They are case sensitive!)
+Default
+# Spec
+# Progress
+# Guard
+# RubyMine
+# RubyMate
+...
