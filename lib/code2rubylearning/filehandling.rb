@@ -15,7 +15,7 @@ module Code2rubylearning
 
     private
     def load_data file
-      @data = "" 
+      @data = ""
       if file
         @file = file
         if File.exists?(@file)

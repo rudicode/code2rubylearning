@@ -1,7 +1,7 @@
 module Code2rubylearning
   class Filter
     def initialize options
-      @options = options      
+      @options = options
     end
 
     def apply input, file_name
@@ -10,7 +10,7 @@ module Code2rubylearning
 
     def add_header file_name
       header = "[code ruby]\n"
-      header << "#filename: #{ file_name }\n" if @options[:filenames] 
+      header << "#filename: #{ file_name }\n" if @options[:filenames]
       header
     end
 
@@ -19,7 +19,9 @@ module Code2rubylearning
     end
 
     def convert source
-      source.gsub('<','&lt;')
+      source = source.gsub('<', '&lt;')
+      source = source.gsub('>', '&gt;')
+      source = source.gsub('Person', 'People')
     end
 
   end

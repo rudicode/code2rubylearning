@@ -19,6 +19,18 @@ describe "Filter" do
       @filter.convert(original).must_equal expected
     end
 
+    it "should convert single > to &gt; in a string" do
+      original = 'class Automobile > Vehicle'
+      expected = 'class Automobile &gt; Vehicle'
+      @filter.convert(original).must_equal expected
+    end
+
+    it "should convert multiple >> to &gt;&gt; in a string" do
+      original = 'my_array >> "some string"'
+      expected = 'my_array &gt;&gt; "some string"'
+      @filter.convert(original).must_equal expected
+    end
+
   end
 
   describe ".apply" do
