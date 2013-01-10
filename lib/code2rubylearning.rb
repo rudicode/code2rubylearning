@@ -21,8 +21,12 @@ module Code2rubylearning
     if options[:prg_link]
       @buffer << "<a href=\"https://github.com/rudicode/code2rubylearning/wiki\">Posted with code2rubylearning v#{ VERSION }</a>\n"
     end
+
     Clippy.copy @buffer unless @buffer.empty?
     puts @buffer if options[:stdout]
+
+    @buffer
+
   end
 
 end
