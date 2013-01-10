@@ -36,9 +36,8 @@ describe "Filter" do
 
   describe ".apply" do
     before :each do
-      # @original = "class Automobile < Vehicle\n  #comment\nend"
       @options = {}
-      @original_file = FileHandling.new("spec/assets/file-1/rb")
+      @original_file = FileHandling.new("spec/assets/file-1.rb")
       @filter = Filter.new(@original_file, @options)
     end
 
@@ -52,13 +51,5 @@ describe "Filter" do
       @filter.apply.must_include expected
     end
   end
-
-  # move this to FileHandling specs
-  # describe ".determine_code_format" do
-
-  #   it "should identify a ruby file by extension" do
-  #     @filter.identify_code_format("hello.rb").must_equal "ruby"  
-  #   end
-  # end
 
 end

@@ -3,16 +3,19 @@ module Code2rubylearning
 
     attr_reader :data, :name, :type
 
-    def initialize(file_name)
+    def initialize(file_name, options = { })
+      @name = nil
+      @data = ""
+      @type = ""
       load_data file_name
-      identify_file_type
+      identify_file_type if @name
     end
 
     def load_data file_name
-      @data = ""
+
       if file_name
-        @name = file_name
-        if File.exists?(@name)
+        if File.exists?(file_name)
+          @name = file_name
           @data = IO.read(@name)
         end
       end

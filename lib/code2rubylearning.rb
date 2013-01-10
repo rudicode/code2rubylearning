@@ -11,9 +11,11 @@ module Code2rubylearning
     @buffer = ""
 
     files.each do |file|
-      current_file = FileHandling.new(file)
-      filter = Filter.new(current_file, options)
-      @buffer << filter.apply
+      current_file = FileHandling.new(file, options)
+      if current_file.name
+        filter = Filter.new(current_file, options)
+        @buffer << filter.apply
+      end
     end
 
     if options[:prg_link]

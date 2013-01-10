@@ -11,8 +11,8 @@ module Code2rubylearning
     end
 
     def add_header file_name
-      format = @current_file.type 
-      header = "[code #{ format }]\n"
+      type = @current_file.type 
+      header = "[code #{ type }]\n"
       header << "#filename: #{ file_name }\n" if @options[:filenames]
       header
     end
@@ -26,13 +26,6 @@ module Code2rubylearning
       source = source.gsub('>', '&gt;')
       source = source.gsub('Person', 'People')
     end
-
-    # move this to FileHandling 
-    # def identify_code_format file_name
-    #   extension_map = { ".rb" => "ruby", "" => "text" }
-    #   extension = File.extname file_name
-    #   extension_map[extension] 
-    # end
 
   end
 end
