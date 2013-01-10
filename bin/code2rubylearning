@@ -30,6 +30,11 @@ begin
       options[:prg_link] = false
     end
 
+    options[:linenumbers] = false
+    opt.on( '-l', '--linenumbers', 'Add line number option to code header' ) do
+      options[:linenumbers] = true
+    end
+
     opt.on( '-h', '--help', 'Display help screen' ) do
       puts opt
       exit 1

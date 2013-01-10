@@ -41,15 +41,22 @@ describe "Filter" do
       @filter = Filter.new(@original_file, @options)
     end
 
-    it "should add [code ruby] to original string" do
+    it "should add [code ruby] to header" do
       expected = "[code ruby]\n"
       @filter.apply.must_include expected
     end
 
-    it "should add [/code] to original string" do
+    it "should add [/code] to footer" do
       expected = "[/code]\n"
       @filter.apply.must_include expected
     end
+
+    it "should add 'linenumbers to header" do
+      @options[:linenumbers] = true
+      expected = "[code ruby linenumbers]"
+      @filter.apply.must_include expected
+    end
+
   end
 
 end

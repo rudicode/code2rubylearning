@@ -13,7 +13,7 @@ module Code2rubylearning
     end
 
     def header file_name
-      header = "[code #{ @type }]\n"
+      header = "[code #{ @type }#{@options[:linenumbers] ? ' linenumbers' : ''}]\n"
       if @options[:filenames]
 
         data_lines = @data.split("\n")
