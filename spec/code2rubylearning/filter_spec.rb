@@ -3,7 +3,8 @@ require "spec_helper"
 describe "Filter" do
   before :each do
     @options = {}
-    @filter = Filter.new(@options)
+    @original_file = FileHandling.new("spec/assets/file-1/rb")
+    @filter = Filter.new(@original_file, @options)
   end
 
   describe ".convert" do
@@ -35,19 +36,29 @@ describe "Filter" do
 
   describe ".apply" do
     before :each do
-      @original = "class Automobile < Vehicle\n  #comment\nend"
+      # @original = "class Automobile < Vehicle\n  #comment\nend"
+      @options = {}
+      @original_file = FileHandling.new("spec/assets/file-1/rb")
+      @filter = Filter.new(@original_file, @options)
     end
 
     it "should add [code ruby] to original string" do
       expected = "[code ruby]\n"
-      @filter.apply(@original, "filename1.rb").must_include expected
+      @filter.apply.must_include expected
     end
 
     it "should add [/code] to original string" do
       expected = "[/code]\n"
-      @filter.apply(@original, "filename1.rb").must_include expected
+      @filter.apply.must_include expected
     end
-
   end
+
+  # move this to FileHandling specs
+  # describe ".determine_code_format" do
+
+  #   it "should identify a ruby file by extension" do
+  #     @filter.identify_code_format("hello.rb").must_equal "ruby"  
+  #   end
+  # end
 
 end

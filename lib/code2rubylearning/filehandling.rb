@@ -1,21 +1,30 @@
 module Code2rubylearning
   class FileHandling
 
-    attr_reader :data
+    attr_reader :data, :name, :type
 
-    def initialize(file)
-      load_data file
+    def initialize(file_name)
+      load_data file_name
+      identify_file_type
     end
 
-    private
-    def load_data file
+    def load_data file_name
       @data = ""
-      if file
-        @file = file
-        if File.exists?(@file)
-          @data = IO.read(@file)
+      if file_name
+        @name = file_name
+        if File.exists?(@name)
+          @data = IO.read(@name)
         end
       end
+    end
+
+    # TODO
+    # Sets the @type for this file
+    # check extension for known types
+    # if extension fails try checking the first line
+    # it may contain #! and give a clue.
+    def identify_file_type
+      @type = "ruby"
     end
 
   end
