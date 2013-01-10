@@ -1,16 +1,10 @@
 module Code2rubylearning
   class FileHandling
+
+    attr_reader :data
+
     def initialize(file)
       load_data file
-    end
-
-    def get_data
-      @data 
-    end
-
-    def get_file file
-      load_data file
-      @data
     end
 
     private

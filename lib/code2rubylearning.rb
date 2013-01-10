@@ -12,7 +12,7 @@ module Code2rubylearning
 
     files.each do |file|
       current_file = FileHandling.new(file)
-      current_data = current_file.get_data
+      current_data = current_file.data
       filter = Filter.new(options)
       @buffer << filter.apply(current_data, file)
     end
