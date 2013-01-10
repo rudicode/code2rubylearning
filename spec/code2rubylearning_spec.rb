@@ -32,4 +32,39 @@ describe Code2rubylearning do
 
   end
 
+  describe "filename option true" do
+
+  before :each do
+      @options = { :filenames => true }
+  end
+
+    it "should add the given path to file as a comment" do
+      files = ["spec/assets/file-1.rb", "spec/assets/file-2.rb"]
+      from_clipboard = Code2rubylearning.start files, @options
+      from_clipboard.must_include "#filename: " + files[0]
+      from_clipboard.must_include "#filename: " + files[1]
+    end
+
+    it "should keep the first line of bin files containing #!" do
+      files = ["spec/assets/file-3.rb"]
+      from_clipboard = Code2rubylearning.start files, @options
+      from_clipboard.must_include "#filename: " + files[0]
+      second_line = from_clipboard.split("\n")[1]
+      second_line.must_include "#!"
+    end
+  end
+
+  describe "filename option false" do
+
+    before :each do
+        @options = { :filenames => false }
+    end
+
+    it "should not output the path to filename in the file" do
+      files = ["spec/assets/file-1.rb", "spec/assets/file-2.rb"]
+      from_clipboard = Code2rubylearning.start files, @options
+      from_clipboard.wont_include "#filename: " + files[0]
+      from_clipboard.wont_include "#filename: " + files[1]
+    end
+  end
 end

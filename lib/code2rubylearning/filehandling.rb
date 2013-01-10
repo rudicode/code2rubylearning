@@ -29,6 +29,5 @@ module Code2rubylearning
     def identify_file_type
       @type = "ruby"
     end
-
   end
 end

@@ -2,22 +2,35 @@ module Code2rubylearning
   class Filter
     def initialize current_file, options
       @current_file = current_file
+      @name = current_file.name
+      @data = current_file.data
+      @type = current_file.type
       @options = options
     end
 
-    def apply #input, file_name
-      # add_header(file_name) << convert(input) << add_footer
-      add_header(@current_file.name) << convert(@current_file.data) << add_footer
+    def apply
+      header(@name) << convert(@data) << footer
     end
 
-    def add_header file_name
-      type = @current_file.type 
-      header = "[code #{ type }]\n"
-      header << "#filename: #{ file_name }\n" if @options[:filenames]
+    def header file_name
+      header = "[code #{ @type }]\n"
+      if @options[:filenames]
+
+        data_lines = @data.split("\n")
+
+        if data_lines.first.include? "#!"
+          bin_line = data_lines.first + "\n"
+          header << bin_line
+          @data = @data.gsub(bin_line, "")
+        end
+
+        header << "#filename: #{ file_name }\n"
+
+      end
       header
     end
 
-    def add_footer
+    def footer
       "[/code]\n"
     end
 
