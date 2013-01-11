@@ -6,16 +6,6 @@ gemspec
 gem 'rake'
 gem 'clippy', "~> 1.0.1"
 
-# If using ruby without readline support
-begin
-  require 'readline'
-  gem 'rb-readline'
-rescue LoadError
-  puts "Installing 'rb-readline' gem to be used instead of Ruby with readline
- support compiled in"
- retry
-end
-
 group :development do
 
   # gem 'guard-ronn'
