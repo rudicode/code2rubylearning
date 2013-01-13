@@ -16,10 +16,37 @@ describe "FileHandling" do
       @valid_file.data.must_equal expected
     end
 
-    it "should set the type to the correct programming language" do
+    it "should set the type to ruby" do
       expected = "ruby"
       @valid_file.type.must_equal expected
     end
+
+    it "should set the type to ruby" do
+      @ruby_file_without_extension = "spec/assets/file-4"
+      @ruby_file = FileHandling.new(@ruby_file_without_extension)
+      expected = "ruby"
+      @ruby_file.type.must_equal expected
+    end
+
+    it "unknown files should default to text" do
+      @unknown = "spec/assets/file-5"
+      @unknown_file = FileHandling.new(@unknown)
+      expected = "text"
+      @unknown_file.type.must_equal expected
+    end
+
+    it "should set the type to python" do
+      @python_file_without_extension = "spec/assets/file-python"
+      @python_file_with_extension = "spec/assets/file-python.py"
+      @python = FileHandling.new(@python_file_without_extension)
+      @python_ext = FileHandling.new(@python_file_with_extension)
+
+      expected = "python"
+
+      @python.type.must_equal expected
+      @python_ext.type.must_equal expected
+    end
+
   end
 
   describe "invalid files" do
