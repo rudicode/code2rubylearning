@@ -9,7 +9,7 @@ describe Code2rubylearning do
     files = ["spec/assets/file-1.rb"]
     from_clipboard = Code2rubylearning.start files, @options
 
-    from_clipboard.must_equal "[code ruby]\r\ndef hello\r\n  \"Hello\"\r\nend\r\n[/code]\r\n"
+    from_clipboard.must_equal %Q|[code ruby]\r\ndef hello\r\n  "Hello"\r\nend\r\n[/code]\r\n|
 
   end
 
@@ -17,7 +17,7 @@ describe Code2rubylearning do
     files = ["spec/assets/file-1.rb", "spec/assets/file-2.rb"]
     from_clipboard = Code2rubylearning.start files, @options
 
-    correct_response = "[code ruby]\r\ndef hello\r\n  \"Hello\"\r\nend\r\n[/code]\r\n[code ruby]\r\ndef there\r\n  \"There\"\r\nend\r\n[/code]\r\n"
+    correct_response = %Q|[code ruby]\r\ndef hello\r\n  "Hello"\r\nend\r\n[/code]\r\n[code ruby]\r\ndef there\r\n  "There"\r\nend\r\n[/code]\r\n|
     from_clipboard.must_equal correct_response
 
   end
@@ -26,8 +26,8 @@ describe Code2rubylearning do
     @options = { :prg_link => true }
     files = ["spec/assets/file-1.rb", "spec/assets/file-2.rb"]
     from_clipboard = Code2rubylearning.start files, @options
-    
-    correct_response = "<a href=\"https://github.com/rudicode/code2rubylearning/wiki\">Posted with code2rubylearning v"
+
+    correct_response = %Q|<a href="https://github.com/rudicode/code2rubylearning/wiki">Posted with code2rubylearning v|
     from_clipboard.must_include correct_response
 
   end
