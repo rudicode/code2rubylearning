@@ -6,17 +6,15 @@ module Code2rubylearning
     def initialize(file_name, options = { })
       self.name = nil
       self.type = ""
-      self.data = file_name
+      load_data file_name
       identify_file_type if name
     end
 
-    def data=(file_name)
-      @data = ""
-      if file_name
-        if File.exists?(file_name)
-          self.name = file_name
-          @data = IO.read(name)
-        end
+    def load_data file_name
+      self.data = ""
+      if file_name && File.exists?(file_name)
+        self.name = file_name
+        self.data = IO.read(name)
       end
     end
 
@@ -24,6 +22,7 @@ module Code2rubylearning
     # check extension for known types
     # if extension fails try checking the first line
     # it may contain #! and give a clue.
+    # TODO can this be renamed to type= ??
     def identify_file_type
       self.type = "text"
       
