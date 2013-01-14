@@ -8,25 +8,29 @@ module Code2rubylearning
   extend self
 
   def start files, options
-    @buffer = ""
+    buffer = ""
 
     files.each do |file|
       current_file = FileHandling.new(file, options)
       if current_file.name
         filter = Filter.new(current_file, options)
-        @buffer << filter.apply
+        buffer << filter.apply
       end
     end
 
     if options[:prg_link]
-      @buffer << "<a href=\"https://github.com/rudicode/code2rubylearning/wiki\">Posted with code2rubylearning v#{ VERSION }</a>\n"
+      buffer << "<a href=\"https://github.com/rudicode/code2rubylearning/wiki\">Posted with code2rubylearning v#{ VERSION }</a>\n"
     end
 
-    Clippy.copy @buffer unless @buffer.empty?
-    puts @buffer if options[:stdout]
+    clipboard_copy buffer
+    puts buffer if options[:stdout]
 
-    @buffer
+    buffer
 
+  end
+
+  def clipboard_copy buffer
+    Clippy.copy buffer unless buffer.empty?
   end
 
 end
