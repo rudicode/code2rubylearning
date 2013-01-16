@@ -9,9 +9,10 @@ require "minitest/matchers"
 
 # To select a different reporter copy the spec/spec_config.rb.example to
 # spec/spec_config.rb and select the reporter you wish to use.
-@spec_options = { minitest_reporter: "Default" }
-require 'spec_config' if File.exists?('spec/spec_config.rb')
-MiniTest::Reporters.use!(eval("MiniTest::Reporters::#{@spec_options[:minitest_reporter]}Reporter.new"))
+File.exists?('spec/spec_config.rb') ?
+  require( 'spec_config') :
+  Option = {report_style: "Default"}
+MiniTest::Reporters.use!(eval("MiniTest::Reporters::#{Option[:report_style]}Reporter.new"))
 
 require('code2rubylearning')
 require('code2rubylearning/version')
