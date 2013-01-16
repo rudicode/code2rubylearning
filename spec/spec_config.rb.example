@@ -2,12 +2,12 @@
 # Reporter choices are case sensitive!
 # uncommet the one you wish to use
 
-@spec_options = {
-# minitest_reporter: "Default",
-minitest_reporter: "Spec",
-# minitest_reporter: "Progress",
-# minitest_reporter: "Guard",
-# minitest_reporter: "RubyMine",
-# minitest_reporter: "RubyMate",
+Option = {
+# report_style: "Default",
+  report_style: "Spec",
+# report_style: "Progress",
+# report_style: "Guard",
+# report_style: "RubyMine",
+# report_style: "RubyMate",
 }
 
