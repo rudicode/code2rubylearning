@@ -1,12 +1,16 @@
 module Code2rubylearning
   class FileHandling
-
     attr_reader :data, :name, :type
 
-    def initialize(file_name, options = { })
+    KNOWN_LANGUAGES = {
+      ruby: '.rb',
+      python: '.py',
+      text: '.txt',
+    }
+
+    def initialize(file_name)
       @name = nil
       @data = ""
-      @type = ""
       load_data file_name
       identify_file_type if @name
     end
@@ -26,20 +30,15 @@ module Code2rubylearning
     # if extension fails try checking the first line
     # it may contain #! and give a clue.
     def identify_file_type
-      @type = "text"
-      
+
       data_lines = @data.split("\n")
 
-      # check for a ruby file
-      if @name.include?(".rb") ||  data_lines.first.include?("#!") && data_lines.first.include?("ruby")
-        @type = "ruby"
+      # Check for known File Type
+      KNOWN_LANGUAGES.each do |language, extension|
+        (@name.include?(extension) ||  data_lines.first.include?("#!") && data_lines.first.include?(language.to_s)) && @type = language.to_s
       end
 
-      # check for a python file
-      if @name.include?(".py") ||  data_lines.first.include?("#!") && data_lines.first.include?("python")
-        @type = "python"
-      end
-
+      @type ||= 'text'
     end
 
   end

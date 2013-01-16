@@ -61,12 +61,12 @@ describe "FileHandling" do
     end
 
     it "should set the data to empty string" do
-      expected = ""
+      expected = ''
       @invalid_file.data.must_equal expected
     end
 
-    it "should set the type to empty string" do
-      expected = ""
+    it "should set the type to nil" do
+      expected = nil
       @invalid_file.type.must_equal expected
     end
 
