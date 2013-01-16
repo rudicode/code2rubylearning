@@ -12,6 +12,7 @@ rdoc
 lib/bundler/man
 spec/reports
 config.yaml
+spec/spec_config.rb
 pkg
 test/tmp
 test/version_tmp
