@@ -19,7 +19,7 @@ module Code2rubylearning
     end
 
     if options[:prg_link]
-      buffer << "<a href=\"https://github.com/rudicode/code2rubylearning/wiki\">Posted with code2rubylearning v#{ VERSION }</a>\n"
+      buffer << %Q|<a href="https://github.com/rudicode/code2rubylearning/wiki">Posted with code2rubylearning v#{ VERSION }</a>\n|
     end
 
     clipboard_copy buffer

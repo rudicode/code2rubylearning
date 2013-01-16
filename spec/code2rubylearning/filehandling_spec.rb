@@ -12,7 +12,7 @@ describe "FileHandling" do
     end
 
     it "should set the data to the contents of the file" do
-      expected = "def hello\n  \"Hello\"\nend\n"
+      expected = %Q|def hello\n  "Hello"\nend\n|
       @valid_file.data.must_equal expected
     end
 

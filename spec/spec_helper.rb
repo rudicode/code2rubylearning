@@ -6,20 +6,13 @@ require "bundler/setup"
 require 'minitest/autorun'
 require 'minitest/reporters'
 require "minitest/matchers"
-require 'yaml'
 
-begin
-  choice = YAML.load_file( 'config.yaml' )
-  MiniTest::Reporters.use!(eval("MiniTest::Reporters::#{choice}Reporter.new"))
-rescue NameError, Errno::ENOENT
-  STDERR.puts <<-EOWARNING
-  #{'+-' * 33}
-  You either don't have a config.yaml file in your project root, or
-  you need to uncomment one of the choices from the menu.
-  #{'+-' * 33}
-  EOWARNING
-  raise
-end
+# To select a different reporter copy the spec/spec_config.rb.example to
+# spec/spec_config.rb and select the reporter you wish to use.
+@spec_options = { minitest_reporter: "Default" }
+require 'spec_config' if File.exists?('spec/spec_config.rb')
+MiniTest::Reporters.use!(eval("MiniTest::Reporters::#{@spec_options[:minitest_reporter]}Reporter.new"))
+
 require('code2rubylearning')
 require('code2rubylearning/version')
 
